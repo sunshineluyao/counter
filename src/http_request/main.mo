@@ -5,45 +5,45 @@ actor Counter {
   stable var counter = 0;
 
   // Get the value of the counter.
-  public query func get() : async Nat {
+    public query func get() : async Nat {
     return counter;
-  };
+    };
 
   // Set the value of the counter.
   public func set(n : Nat) : async () {
     counter := n;
-  };
+    };
 
   // Increment the value of the counter.
-  public func inc() : async () {
+    public func inc() : async () {
     counter += 1;
-  };
+    };
 
-  public type Key = Text;
-  public type Path = Text;
-  public type ChunkId = Nat;
-  public type SetAssetContentArguments = {
+    public type Key = Text;
+    public type Path = Text;
+    public type ChunkId = Nat;
+    public type SetAssetContentArguments = {
     key : Key;
     sha256 : ?[Nat8];
     chunk_ids : [ChunkId];
     content_encoding : Text;
-  };
-  public type StreamingCallbackHttpResponse = {
+    };
+    public type StreamingCallbackHttpResponse = {
     token : ?StreamingCallbackToken;
     body : [Nat8];
-  };
-  public type StreamingCallbackToken = {
+    };
+    public type StreamingCallbackToken = {
     key : Text;
     sha256 : ?[Nat8];
     index : Nat;
     content_encoding : Text;
-  };
-  public type StreamingStrategy = {
+     };
+    public type StreamingStrategy = {
     #Callback : {
       token : StreamingCallbackToken;
       callback : shared query StreamingCallbackToken -> async StreamingCallbackHttpResponse;
+        };
     };
-  };
     public type HeaderField = (Text, Text);
     public type HttpRequest = {
         url : Text;
@@ -64,7 +64,6 @@ actor Counter {
             headers = [];
             streaming_strategy = null;
             status_code = 200;
-        }
+            }
     };
-};
-
+}
