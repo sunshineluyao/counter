@@ -19,7 +19,7 @@ actor Counter {
     counter += 1;
   };
 
-   public type Key = Text;
+  public type Key = Text;
   public type Path = Text;
   public type ChunkId = Nat;
   public type SetAssetContentArguments = {
